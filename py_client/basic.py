@@ -2,8 +2,8 @@ import requests
 
 # HTTP Request -> Non - APIrequest -> HTML # will return an HTML document
 # for http request u will get a html that's made for the browser that's made for humans to look at
-endpoint = "https://github.com/" # http request # will return an HTML document
-get_response = requests.get(endpoint)
+# endpoint = "https://github.com/" # http request # will return an HTML document
+# get_response = requests.get(endpoint)
 # print(get_response.text) # print the source code
 
 # request : is basically an API -> get() is a method built into it . Using this library is a form of using an API
@@ -18,24 +18,31 @@ get_response = requests.get(endpoint)
 # REST APIs aren't meant for humans to look at instead meant for software to communicate with each other over the web
 # JavaScript Object Nototion ~ Python Dict
 # endpoint = "https://httpbin.org/"
-endpoint = "https://httpbin.org/anything" 
-get_response = requests.get(endpoint)
-# print(get_response.text) # returns JSON data
-# print(get_response.json()) # return a python dictinary
+# endpoint = "https://httpbin.org/anything" 
+# get_response = requests.get(endpoint)
+# # print(get_response.text) # returns JSON data
+# # print(get_response.json()) # return a python dictinary
+
+# print("------------------------------------------------------------------------------------")
+
+# using request lib we can pass our own json data 
+# endpoint = "http://localhost:8000/api"get_response = requests.get(endpoint, json={"query":"Hello World"})
+# print(get_response.text) # O/P: "data": "{\"query\": \"Hello World\"}", "Content-Type": "application/json",
+
+# get_response = requests.get(endpoint, data={"query":"Hello World"})
+# print(get_response.text) # O/P: "form": {"query": "Hello World"} , "Content-Type": "application/x-www-form-urlencoded",
+# print(get_response.status_code)
 
 print("------------------------------------------------------------------------------------")
 
-# using request lib we can pass our own json data 
-get_response = requests.get(endpoint, json={"query":"Hello World"})
-print(get_response.text) # O/P: "data": "{\"query\": \"Hello World\"}", "Content-Type": "application/json",
+endpoint = "http://localhost:8000/api"
+get_response = requests.get(endpoint, json={"query": "Hello World!"})
+# get_response = requests.get(endpoint , params={"abc":123},json={"query": "Hello World!"})
+print(get_response.headers)
+# print(get_response.status_code)
+# print(get_response.json())
 
-get_response = requests.get(endpoint, data={"query":"Hello World"})
-print(get_response.text) # O/P: "form": {"query": "Hello World"} , "Content-Type": "application/x-www-form-urlencoded",
-print(get_response.status_code)
-# endpoint = "http://localhost:8000/api/" #http://127.0.0.1:8000/ 
-
-
-
+# endpoint = "http://localhost:8000/" #http://127.0.0.1:8000/ 
 # get_response = requests.post(endpoint, json={"title": "Abc123", "content": "Hello world", "price": "abc134"}) # HTTP Request
 # print(get_response.headers)
 # print(get_response.text) # print raw text response
