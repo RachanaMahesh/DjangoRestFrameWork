@@ -1,5 +1,13 @@
 import requests
 
+endpoint = "http://localhost:8000/api/products/"
+data = {"title": "This product is done", "price": 100}
+get_response = requests.post(endpoint,json= data)
+print(get_response.json())
+# json={"title": "Product_11" , "content": "Product_11", "price": 123}
+
+
+
 # HTTP Request -> Non - APIrequest -> HTML # will return an HTML document
 # for http request u will get a html that's made for the browser that's made for humans to look at
 # endpoint = "https://github.com/" # http request # will return an HTML document
@@ -33,13 +41,14 @@ import requests
 # print(get_response.text) # O/P: "form": {"query": "Hello World"} , "Content-Type": "application/x-www-form-urlencoded",
 # print(get_response.status_code)
 
-print("------------------------------------------------------------------------------------")
+# print("------------------------------------------------------------------------------------")
 
-endpoint = "http://localhost:8000/api"
-get_response = requests.get(endpoint, json={"query": "Hello World!"})
+# endpoint = "http://localhost:8000/api/"
+# get_response = requests.post(endpoint, json={"title": "Product_11" , "content": "Product_11", "price": 123})
 # get_response = requests.get(endpoint , params={"abc":123},json={"query": "Hello World!"})
-print(get_response.headers)
+# print(get_response.headers)
 # print(get_response.status_code)
+# print(get_response)
 # print(get_response.json())
 
 # endpoint = "http://localhost:8000/" #http://127.0.0.1:8000/ 
