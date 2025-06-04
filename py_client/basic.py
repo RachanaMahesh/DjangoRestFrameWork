@@ -1,10 +1,10 @@
 import requests
 
-endpoint = "http://localhost:8000/api/products/"
-data = {"title": "This product is done", "price": 100}
-get_response = requests.post(endpoint,json= data)
-print(get_response.json())
-# json={"title": "Product_11" , "content": "Product_11", "price": 123}
+endpoint = "http://localhost:8000/" 
+get_response = requests.post(endpoint, json={"title": "Abc123", "content": "Hello world", "price": "abc134"}) # HTTP Request
+print(get_response.headers)
+print(get_response.text) # print raw text response
+print(get_response.status_code)
 
 
 
